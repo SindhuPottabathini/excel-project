@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <title>Example 1</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        h3 {
+            margin-bottom: 20px;
+        }
+
+        table {
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+
+        td,
+        th {
+            border: 1px solid black;
+            padding: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>
+        Using insertRow() and insertCell()
+        <br/> to add a new row in HTML table.
+    </h3>
+    <table id="tab">
+        <thead>
+            <tr>
+                <th  type="text">Subject</th>
+                <th>Marks</th>
+                <th>total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Python</td>
+                <td>56</td>
+            </tr>
+            <tr>
+                <td>JS</td>
+                <td>60</td>
+            </tr>
+        </tbody>
+    </table>
+    <br/>
+    <button onclick="insertFn()">
+        Insert Row
+    </button>
+    <script>
+        function insertFn() {
+            const table = document.getElementById("tab").
+                getElementsByTagName('tbody')[0];
+            const newRow = table.insertRow();
+            const cell1 = newRow.insertCell(0);
+            const cell2 = newRow.insertCell(1);
+            cell1.innerHTML = "CSS";
+            cell2.innerHTML = "67";
+        }
+        function insertFn() {
+            const table = document.getElementById("tab").
+                getElementsByTagName('tbody')[0];
+            const newColumn = table.insertColumn();
+            const cell1 = newColumn.insertCell(0);
+            const cell2 = newColumn.insertCell(1);
+            cell1.innerHTML = "CSS";
+            cell2.innerHTML = "67";
+        }
+    </script>
+
+</body>
+
+</html>
