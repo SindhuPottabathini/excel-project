@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkbox List</title>
+</head>
+<body>
+    <h2>Task List</h2>
+    <form id="myForm">
+        <label for="name">Name (Max 30 characters, no special characters):</label>
+        <input type="text" id="name" maxlength="30 required">
+    
+        <label for="email">Email (Max 50 characters):</label>
+        <input type="email" id="email" maxlength="50" required>
+    
+        <label for="age">Age (Max 3 digits):</label>
+        <input type="number" id="age" max="999" required>
+    
+        <button type="submit">Submit</button>
+    </form>
+    
+    <div id="message"></div>
+<script>
+    document.getElementById('myForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const age = document.getElementById('age').value;
+    const namePattern = /^[a-zA-Z\s]*$/; // Only letters and spaces
+
+    // Validate inputs
+    if (!name || !namePattern.test(name)) {
+        document.getElementById('message').innerText = "Please enter a valid name (30 characters max, no special characters).";
+        return;
+    }
+
+    if (!email || email.length > 50) {
+        document.getElementById('message').innerText = "Please enter a valid email (50 characters max).";
+        return;
+    }
+
+    if (!age || age < 0 || age > 999) {
+        document.getElementById('message').innerText = "Please enter a valid age (0-999).";
+        return;
+    }
+
+    // All inputs are valid
+    document.getElementById('message').innerText = "Form submitted successfully!";
+    // Here you can add your logic to save the data
+});
+
+</script>    
+</body>
+</html>

@@ -36,76 +36,129 @@
             
 <div class="container-fluid">
   <div class="button-container">
-    <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">REACT</button>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Topic</a></li>
-        <li><a class="dropdown-item" href="#">Sub topic-1</a></li>
-        <li><a class="dropdown-item" href="#">Sub topic-2</a></li>
-        <li><a class="dropdown-item" href="#">Sub topic-3</a></li>
-      </ul>
-    
-          <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">HTML</button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Topic</a></li>
-              <li><a class="dropdown-item" href="#">Sub topic-1</a></li>
-              <li><a class="dropdown-item" href="#">Sub topic-2</a></li>
-              <li><a class="dropdown-item" href="#">Sub topic-3</a></li>
-            </ul>
+    <button type="button" class="btn dropdown-toggle" onclick="window.location.href='file.html'">REACT</button>
+   
+   
+          <button type="button" class="btn dropdown-toggle"  onclick="window.location.href='file.html'">HTML</button>
+        
+        
 
-            <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">CSS</button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Topic</a></li>
-              <li><a class="dropdown-item" href="#">Sub topic-1</a></li>
-              <li><a class="dropdown-item" href="#">Sub topic-2</a></li>
-              <li><a class="dropdown-item" href="#">Sub topic-3</a></li>
-            </ul>
+            <button type="button" class="btn dropdown-toggle" onclick="window.location.href='file.html'">CSS</button>
+ 
 
-            <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">JAVA  SCRIPT</button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Topic</a></li>
-              <li><a class="dropdown-item" href="#">Sub topic-1</a></li>
-              <li><a class="dropdown-item" href="#">Sub topic-2</a></li>
-              <li><a class="dropdown-item" href="#">Sub topic-3</a></li>
-            </ul><br><br>
+            <button type="button" class="btn dropdown-toggle"  onclick="window.location.href='file.html'">JAVA  SCRIPT</button>
+     
             
-            <div style="border: 2px solid hsl(0, 9%, 96%); padding: 15px; border-radius: 5px; max-width: 400px; margin: auto;">
-              <form action="" style="display: flex; flex-direction: column; gap: 5px;">
+            <div class="form-container">
+              <form id="dataForm" class="form">
                   <label for="first_name">Name</label>
-                  <input type="text" id="first_name">
+                  <input type="text" id="first_name" name="first_name" maxlength="30 required">
+          
+                  <label for="topic_name">Main-Topic</label>
+                  <input type="text" id="topic_name" name="topic_name" maxlength="50 required">
+          
+                  <label for="sub_topic_name">Sub-Topic</label>
+                  <input type="text" id="sub_topic_name" name="sub_topic_name" maxlength="50 required">
+          
+                  <label for="start_date">Start Date</label>
+                  <input type="text" id="start_date" name="start_date" required>
+          
+                  <label for="end_date">End Date</label>
+                  <input type="text" id="end_date" name="end_date" required>
+          
+                  <button type="button" onclick="saveData()">Save Data</button>
                   
-                  <label for="first_name">Main-Topic</label>
-                  <input type="text" id="topic_name">
-                  
-                  <label for="first_name">Sub-Topic</label>
-                  <input type="text" id="sub_topic_name">
-                  
-                  <label for="first_name">Start Date</label>
-                  <input type="text" id="start_date">
-                  
-                  <label for="first_name">End Date</label>
-                  <input type="text" id="end_date"><br>
-                  
-                  <!-- <label for="status">Status</label>
-                  <input type="text" id="status"><br> -->
-
-                  <div class="col-auto">
-                    <label class="visually-hidden" for="autoSizingSelect">Preference</label>
-                    <select class="form-select" id="autoSizingSelect">
-                      <option selected>Status</option>
-                      <option value="1">Complete</option>
-                      <option value="2">In progress</option>
-                      <option value="3">Incomplete</option>
-                    </select>
-                  </div>
               </form>
-          </div>
+              </div>
           
-          
+      </div>
+     
+      <div class="vertical-menu">
+        <a href="#" class="active">Topics Learnt</a>
+        <a href="#" style="color: #f7f7fa; font-weight: bold; background-color: gray;">REACT</a>
+        <div class="btn-group" role="group" style="width: 100%;">
+          <button id="btnGroupDrop1" type="button" class="btn btn-light dropdown-toggle" style="border-radius: 0px;"  data-bs-toggle="dropdown">
+        Persons learnt by
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+            <form>
+              <label>
+                  <input type="checkbox" name="task1">  Priyanka
+              </label><br>
+              <label>
+                  <input type="checkbox" name="task2"> Sindhuja
+              </label><br>
+              <label>
+                  <input type="checkbox" name="task3"> Radhika
+              </label>
+          </form>
+          </ul>
+        </div>
+        
+        <a href="#" style="color: #f8f8fc; font-weight: bold; background-color:  gray">HTML</a>
+        
+        <div class="btn-group" role="group" style="width: 100%;">
+          <button id="btnGroupDrop1" type="button" class="btn btn-light dropdown-toggle" style="border-radius: 0px;" data-bs-toggle="dropdown">
+        Persons learnt by
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+            <form>
+              <label>
+                  <input type="checkbox" name="task1"> Priyanka
+              </label><br>
+              <label>
+                  <input type="checkbox" name="task2"> Sindhuja
+              </label><br>
+              <label>
+                  <input type="checkbox" name="task3"> Radhika
+              </label>
+          </form>
+          </ul>
+        </div>
 
-          </div>
+  
+        <a href="#" style="color: #f1f1f1; font-weight: bold; background-color:  gray;">CSS</a>
+        
+        <div class="btn-group" role="group" style="width: 100%;">
+          <button id="btnGroupDrop1" type="button" class="btn btn-light dropdown-toggle" style="border-radius: 0px;" data-bs-toggle="dropdown">
+        Persons learnt by
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+            <form>
+              <label>
+                  <input type="checkbox" name="task1"> Priyanka
+              </label><br>
+              <label>
+                  <input type="checkbox" name="task2"> Sindhuja
+              </label><br>
+              <label>
+                  <input type="checkbox" name="task3"> Radhika
+              </label>
+          </form>
+          </ul>
+        </div>
+        <a href="#" style="color: #f9f9fa; font-weight: bold; background-color: gray">JAVA SCRIPT</a>
+        
+        <div class="btn-group" role="group" style="width: 100%;">
+          <button id="btnGroupDrop1" type="button" class="btn btn-light dropdown-toggle" style="border-radius: 0px;" data-bs-toggle="dropdown">
+        Persons learnt by
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+            <form>
+              <label>
+                  <input type="checkbox" name="task1"> Priyanka
+              </label><br>
+              <label>
+                  <input type="checkbox" name="task2"> Sindhuja
+              </label><br>
+              <label>
+                  <input type="checkbox" name="task3"> Radhika
+              </label>
+          </form>
+          </ul>
         </div>
       </div>
-    </div>
-
-         </body>
+    
+      </div>
+</body>
 </html>

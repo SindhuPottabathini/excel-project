@@ -1,40 +1,53 @@
-function checkEnter(event, input) {
-    if (event.key === 'Enter') {
-        event.preventDefault(); // Prevent default action
-        
-        const row = input.closest('tr');
-        const inputs = row.querySelectorAll('input[type="text"]');
+function saveData() {
+    // Get the input values
+    const firstName = document.getElementById('first_name').value;
+    const topicName = document.getElementById('topic_name').value;
+    const subTopicName = document.getElementById('sub_topic_name').value;
+    const startDate = document.getElementById('start_date').value;
+    const endDate = document.getElementById('end_date').value;
 
-        // Check if this input is the last one in the row
-        if (input === inputs[inputs.length - 1]) {
-            addRow(); // If it's the last input, add a new row
-        } else {
-            saveEdit(input); // Otherwise, save the edit
-        }
+    // Create an object for the new data
+    const newData = {
+        name: firstName,
+        main_topic: topicName,
+        sub_topic: subTopicName,
+        start_date: startDate,
+        end_date: endDate
+    };
+
+    // Get existing data from local storage
+    let existingData = JSON.parse(localStorage.getItem('userData')) || [];
+
+    // Add new data to existing data
+    existingData.push(newData);
+
+    // Save updated data back to local storage
+    localStorage.setItem('userData', JSON.stringify(existingData));
+
+    // Clear the form
+    document.getElementById('dataForm').reset();
+    alert('Data saved successfully!');
+}
+
+function downloadData() {
+    // Get data from local storage
+    const data = localStorage.getItem('userData');
+
+    if (!data) {
+        alert('No data to download!');
+        return;
     }
+
+    // Create a blob and a link to download the file
+    const blob = new Blob([data], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    // a.download = 'user_data.json';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
 }
 
-function addRow() {
-    const tableBody = document.getElementById('dataTableBody');
-    const newRow = tableBody.insertRow();
-    const slNoCell = newRow.insertCell(0);
-    slNoCell.innerText = tableBody.rows.length;
-
-    newRow.insertCell(1).innerHTML = `<input type="text" onkeypress="checkEnter(event, this)">`;
-    newRow.insertCell(2).innerHTML = `<input type="text" onkeypress="checkEnter(event, this)">`;
-    newRow.insertCell(3).innerHTML = `<input type="checkbox">`;
-    newRow.insertCell(4).innerHTML = `<input type="checkbox">`;
-    newRow.insertCell(5).innerHTML = `<input type="checkbox">`;
-
-    // Focus on the new row's first input
-    newRow.cells[1].querySelector('input').focus();
-}
-
-
-function updateSlNo() {
-    const rows = document.querySelectorAll('#dataTableBody tr');
-    rows.forEach((row, index) => {
-        row.cells[0].innerText = index + 1; // Update serial numbers
-    });
-}
 

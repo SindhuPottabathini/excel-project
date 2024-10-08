@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* Recommended for easier sizing */
+  box-sizing: border-box;
 }
 
  nav {
@@ -27,70 +27,93 @@
 } 
 
 .container-fluid { 
-  background-image: url("book.webp");  
+  background-image: url("book.webp"); 
   height: 100vh; 
   width: 100%; 
   padding: 10px;
   background-size: cover; 
   background-position:center; 
 }
-
+ 
 .button-container button {
   margin: 5px; 
-  padding: 10px 30px; 
+  padding: 5px 15px; 
   border: 1px solid hsl(210, 40%, 98%); 
-  background-color: hsl(207, 69%, 97%);
-  color: rgb(15, 87, 134); 
+  background-color:hsl(200, 80%, 50%);
+  color: #fdfdfd; 
 }
 
-.styled-input {
+.vertical-menu {
+  width: 250px;
+  height: 400px;
+  overflow-y: auto;
+  margin-left: 82%;
+  margin-top: -32%;
+  border-radius: 2px;
+}
+
+.custom-button {
+  width: 100%; /* Set your desired width */
+}
+
+
+.vertical-menu a {
+  background-color: #eee;
+  color: black;
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+}
+
+.vertical-menu a:hover {
+  background-color: #ccc;
+}
+
+.vertical-menu a.active {
+  background-color:hsl(200, 80%, 50%);
+  color: white;
+}
+
+#btnGroupDrop1{
+  border-radius: none;
+}
+
+.form-container {
+  background-color: rgb(185, 222, 253);
+  border: 2px solid hsl(0, 9%, 96%);
   padding: 10px;
-  border: 1px solid hsl(0, 0%, 80%);
-  border-radius: 4px;
-  font-size: 12px;
-  transition: white 0.3s;
+  border-radius: 5px;
+  max-width: 400px;
+  margin: auto;
 }
 
-.styled-input:focus {
-  border-color: hsl(123, 100%, 50%);
-  outline: none;
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 label {
-  font-weight:normal;
+  font-weight: bold;
 }
 
-.fs-2 {
-  display: block;
-  width: 100%;
-  height: auto;
+input {
+  padding: 2px;
+  border: 1px solid hsl(0, 9%, 80%);
+  border-radius: 3px;
 }
 
-.overlay {
-  position: absolute;
-  bottom: 100%;
-  right: 0px;
-  background-color: #008CBA;
-  overflow: hidden; 
-  width: 100%;
-  height:0;
-  transition: .6s ease;
-}
-
-.container:hover .overlay {
-  bottom: 0;
-  height: 100%;
-}
-
-.text {
+button {
+  padding: px;
+  background-color: hsl(200, 80%, 50%);
   color: white;
-  font-size: 20px;
-  position: absolute;
-  top: 50%;  
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  text-align: center;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
+
+button:hover {
+  background-color: hsl(200, 80%, 40%);
+}
+
 
