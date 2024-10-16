@@ -3,7 +3,7 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+ 
  nav {
   width: 100%;
   height: 80px;
@@ -15,94 +15,114 @@
   color: hsl(207, 82%, 68%);
   box-shadow: 2px 2px 3px gray;  
 }
-
+ 
 .custom-h4 {
-  color: hsla(213, 9%, 44%, 0.527); 
+  color: hsla(213, 9%, 44%, 0.527);
   text-shadow: 2px 1px 1px rgba(4, 4, 19, 0.603);
+  text-align: center;
+  justify-content: center;
 }
-
- .container-fluid1 { 
-  height: 5vh; 
+ 
+ .container-fluid1 {
+  height: 5vh;
   padding: 5px 0px 5px 20px ;
-} 
-
-.container-fluid { 
-  background-image: url("book.webp"); 
-  height: 100vh; 
-  width: 100%; 
+}
+ 
+.container-fluid {
+  background-image: url("book.webp");
+  height: 100vh;
+  width: 100%;
   padding: 10px;
-  background-size: cover; 
-  background-position:center; 
+  background-size: cover;
+  background-position:center;
 }
  
 .button-container button {
-  margin: 5px; 
-  padding: 5px 15px; 
-  border: 1px solid hsl(210, 40%, 98%); 
-  background-color:hsl(200, 80%, 50%);
-  color: #fdfdfd; 
+  margin: 5px;
+  padding: 5px 15px;
+  /* border: 1px solid hsl(210, 40%, 98%);  */
+  background-color:hsl(27, 34%, 57%);
+  color: #fdfdfd;
+  font-size: 14px;
 }
-
 .vertical-menu {
-  width: 250px;
-  height: 400px;
-  overflow-y: auto;
-  margin-left: 82%;
-  margin-top: -32%;
-  border-radius: 2px;
+  color: hwb(200 98% 1%);
+  background-image: url("blue1.jpg");
+  background-size: cover;
+  background-position: center;
+  border: 2px solid hsl(200, 27%, 96%); /* Border color and thickness */
+  border-radius: 8px; /* Rounded corners */
+  padding: 10px; /* Space inside the box */
+ 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  max-width: 300px; /* Set a max width */
+  margin-left: 70%; /* Center the box */
+  margin-top: -25%;
+  overflow: hidden; /* Prevent overflow of content */
 }
-
-.custom-button {
-  width: 100%; /* Set your desired width */
+ 
+.d-flex {
+ 
+  width: 100%; /* Full width of the parent container */
+  margin: auto; /* Center the div */
 }
-
-
-.vertical-menu a {
-  background-color: #eee;
-  color: black;
-  display: block;
-  padding: 12px;
-  text-decoration: none;
+ 
+#slideset1 {
+  height: 10em; /* Fixed height for the animation */
+  position: relative; /* Positioning for absolute child elements */
 }
-
-.vertical-menu a:hover {
-  background-color: #ccc;
+ 
+#slideset1 > div {
+  position: absolute; /* Position each slide absolutely */
+  top: 0;
+  left: 0;
+  width: 100%; /* Full width of the container */
+  height: 100%; /* Full height of the container */
+  opacity: 0; /* Start hidden */
+  transition: opacity 1s ease; /* Smooth transition */
 }
-
-.vertical-menu a.active {
-  background-color:hsl(200, 80%, 50%);
-  color: white;
+ 
+@keyframes autoplay {
+  0%, 20% { opacity: 1; } /* Visible for 20% */
+  20%, 100% { opacity: 0; } /* Hidden for the rest */
 }
-
+ 
+/* Timing for each slide */
+#slideset1 > div:nth-child(1) { animation: autoplay 16s infinite; animation-delay: 0s; }
+#slideset1 > div:nth-child(2) { animation: autoplay 16s infinite; animation-delay: 4s; }
+#slideset1 > div:nth-child(3) { animation: autoplay 16s infinite; animation-delay: 8s; }
+#slideset1 > div:nth-child(4) { animation: autoplay 16s infinite; animation-delay: 12s; }
+ 
 #btnGroupDrop1{
   border-radius: none;
 }
-
+ 
 .form-container {
-  background-color: rgb(185, 222, 253);
+  background-color: rgb(250, 231, 209);
   border: 2px solid hsl(0, 9%, 96%);
   padding: 10px;
   border-radius: 5px;
   max-width: 400px;
   margin: auto;
+  margin-top: 35px;
 }
-
+ 
 .form {
   display: flex;
   flex-direction: column;
   gap: 2px;
 }
-
+ 
 label {
   font-weight: bold;
 }
-
+ 
 input {
   padding: 2px;
   border: 1px solid hsl(0, 9%, 80%);
   border-radius: 3px;
 }
-
+ 
 button {
   padding: px;
   background-color: hsl(200, 80%, 50%);
@@ -111,9 +131,7 @@ button {
   border-radius: 5px;
   cursor: pointer;
 }
-
+ 
 button:hover {
   background-color: hsl(200, 80%, 40%);
 }
-
-

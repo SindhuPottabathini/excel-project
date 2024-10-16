@@ -5,7 +5,7 @@ function saveData() {
     const subTopicName = document.getElementById('sub_topic_name').value;
     const startDate = document.getElementById('start_date').value;
     const endDate = document.getElementById('end_date').value;
-
+ 
     // Create an object for the new data
     const newData = {
         name: firstName,
@@ -14,30 +14,30 @@ function saveData() {
         start_date: startDate,
         end_date: endDate
     };
-
+ 
     // Get existing data from local storage
     let existingData = JSON.parse(localStorage.getItem('userData')) || [];
-
+ 
     // Add new data to existing data
     existingData.push(newData);
-
+ 
     // Save updated data back to local storage
     localStorage.setItem('userData', JSON.stringify(existingData));
-
+ 
     // Clear the form
     document.getElementById('dataForm').reset();
     alert('Data saved successfully!');
 }
-
+ 
 function downloadData() {
     // Get data from local storage
     const data = localStorage.getItem('userData');
-
+ 
     if (!data) {
         alert('No data to download!');
         return;
     }
-
+ 
     // Create a blob and a link to download the file
     const blob = new Blob([data], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
@@ -49,5 +49,19 @@ function downloadData() {
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
 }
-
-
+ 
+$(document).ready(function () {
+    // Initialize Flatpickr for the end date
+    flatpickr("#end_date", {
+        dateFormat: "Y-m-d",
+        enableTime: false,
+    });
+});
+ 
+$(document).ready(function () {
+    // Initialize Flatpickr for the start date
+    flatpickr("#start_date", {
+        dateFormat: "Y-m-d",
+        enableTime: false,
+    });
+});
